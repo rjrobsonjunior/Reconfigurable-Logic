@@ -1,0 +1,7 @@
+
+State Machine - |StateMachine|StateMachineMotor:inst|fstate
+Name fstate.S1 fstate.S3 fstate.S2 fstate.S0 
+fstate.S0 0 0 0 0 
+fstate.S2 0 0 1 1 
+fstate.S3 0 1 0 1 
+fstate.S1 1 0 0 1 

@@ -1,0 +1,16 @@
+Analysis & Synthesis Status : Successful - Tue Sep 09 17:11:54 2025
+Quartus Prime Version : 18.1.0 Build 625 09/12/2018 SJ Lite Edition
+Revision Name : StateMachine
+Top-level Entity Name : StateMachine
+Family : MAX 10
+Total logic elements : 11
+    Total combinational functions : 11
+    Dedicated logic registers : 6
+Total registers : 6
+Total pins : 6
+Total virtual pins : 0
+Total memory bits : 0
+Embedded Multiplier 9-bit elements : 0
+Total PLLs : 0
+UFM blocks : 0
+ADC blocks : 0

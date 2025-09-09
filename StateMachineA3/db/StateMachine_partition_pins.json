@@ -1,0 +1,33 @@
+{
+	"partitions" : [
+		{
+			"name" : "Top",
+			"pins" : [
+				{
+					"name" : "Saida1",
+					"strict" : false
+				},
+				{
+					"name" : "Saida2",
+					"strict" : false
+				},
+				{
+					"name" : "reset",
+					"strict" : false
+				},
+				{
+					"name" : "clock",
+					"strict" : false
+				},
+				{
+					"name" : "Enable",
+					"strict" : false
+				},
+				{
+					"name" : "Sentido",
+					"strict" : false
+				}
+			]
+		}
+	]
+}

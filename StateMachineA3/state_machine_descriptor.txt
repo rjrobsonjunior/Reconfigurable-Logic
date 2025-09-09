@@ -1,0 +1,18 @@
+Inputs: LeftSensor, RightSensor, Enable, Losting
+Outputs: MotorSpeedLeft, MotorSpeedRight, Looking
+
+MotorSpeed: 00 = stopped, 01 = half, 10 = full
+
+States: 
+        S0 (Idle      ) [00, 00]
+        S1 (Full Speed) [10, 10]
+        S2 (Turn Left ) [01, 10]
+        S3 (Turn Right) [10, 01]
+        S4 (Seek Left ) [00, 01]
+        S5 (Seek Right) [01, 00]
+        S6 (Lost      ) [00, 00]
+
+
+
+
+

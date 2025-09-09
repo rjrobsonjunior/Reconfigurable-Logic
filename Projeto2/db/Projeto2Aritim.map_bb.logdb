@@ -1,0 +1,2 @@
+v1
+DSP_BALANCING_IMPLEMENTATION,DSP_BLOCKS,MULT2:inst|lpm_mult:lpm_mult_component|mult_eqm:auto_generated|mac_out2,

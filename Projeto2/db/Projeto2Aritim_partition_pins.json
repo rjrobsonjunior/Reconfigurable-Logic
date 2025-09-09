@@ -1,0 +1,145 @@
+{
+	"partitions" : [
+		{
+			"name" : "Top",
+			"pins" : [
+				{
+					"name" : "out_mem[15]",
+					"strict" : false
+				},
+				{
+					"name" : "out_mem[14]",
+					"strict" : false
+				},
+				{
+					"name" : "out_mem[13]",
+					"strict" : false
+				},
+				{
+					"name" : "out_mem[12]",
+					"strict" : false
+				},
+				{
+					"name" : "out_mem[11]",
+					"strict" : false
+				},
+				{
+					"name" : "out_mem[10]",
+					"strict" : false
+				},
+				{
+					"name" : "out_mem[9]",
+					"strict" : false
+				},
+				{
+					"name" : "out_mem[8]",
+					"strict" : false
+				},
+				{
+					"name" : "out_mem[7]",
+					"strict" : false
+				},
+				{
+					"name" : "out_mem[6]",
+					"strict" : false
+				},
+				{
+					"name" : "out_mem[5]",
+					"strict" : false
+				},
+				{
+					"name" : "out_mem[4]",
+					"strict" : false
+				},
+				{
+					"name" : "out_mem[3]",
+					"strict" : false
+				},
+				{
+					"name" : "out_mem[2]",
+					"strict" : false
+				},
+				{
+					"name" : "out_mem[1]",
+					"strict" : false
+				},
+				{
+					"name" : "out_mem[0]",
+					"strict" : false
+				},
+				{
+					"name" : "rms[15]",
+					"strict" : false
+				},
+				{
+					"name" : "rms[14]",
+					"strict" : false
+				},
+				{
+					"name" : "rms[13]",
+					"strict" : false
+				},
+				{
+					"name" : "rms[12]",
+					"strict" : false
+				},
+				{
+					"name" : "rms[11]",
+					"strict" : false
+				},
+				{
+					"name" : "rms[10]",
+					"strict" : false
+				},
+				{
+					"name" : "rms[9]",
+					"strict" : false
+				},
+				{
+					"name" : "rms[8]",
+					"strict" : false
+				},
+				{
+					"name" : "rms[7]",
+					"strict" : false
+				},
+				{
+					"name" : "rms[6]",
+					"strict" : false
+				},
+				{
+					"name" : "rms[5]",
+					"strict" : false
+				},
+				{
+					"name" : "rms[4]",
+					"strict" : false
+				},
+				{
+					"name" : "rms[3]",
+					"strict" : false
+				},
+				{
+					"name" : "rms[2]",
+					"strict" : false
+				},
+				{
+					"name" : "rms[1]",
+					"strict" : false
+				},
+				{
+					"name" : "rms[0]",
+					"strict" : false
+				},
+				{
+					"name" : "clock",
+					"strict" : false
+				},
+				{
+					"name" : "aclr",
+					"strict" : false
+				}
+			]
+		}
+	]
+}
