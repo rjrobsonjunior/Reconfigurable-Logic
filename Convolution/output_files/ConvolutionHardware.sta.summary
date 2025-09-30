@@ -1,0 +1,77 @@
+------------------------------------------------------------
+Timing Analyzer Summary
+------------------------------------------------------------
+
+Type  : Slow 1200mV 85C Model Setup 'MAX10_CLK1_50'
+Slack : -2.224
+TNS   : -10.418
+
+Type  : Slow 1200mV 85C Model Setup 'Counter9bits:inst9|lpm_counter:LPM_COUNTER_component|cntr_57i:auto_generated|counter_reg_bit[8]'
+Slack : -2.066
+TNS   : -127.934
+
+Type  : Slow 1200mV 85C Model Hold 'Counter9bits:inst9|lpm_counter:LPM_COUNTER_component|cntr_57i:auto_generated|counter_reg_bit[8]'
+Slack : 0.675
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Hold 'MAX10_CLK1_50'
+Slack : 0.712
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'Counter9bits:inst9|lpm_counter:LPM_COUNTER_component|cntr_57i:auto_generated|counter_reg_bit[8]'
+Slack : -3.000
+TNS   : -192.000
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'MAX10_CLK1_50'
+Slack : -3.000
+TNS   : -16.383
+
+Type  : Slow 1200mV 0C Model Setup 'MAX10_CLK1_50'
+Slack : -1.908
+TNS   : -8.585
+
+Type  : Slow 1200mV 0C Model Setup 'Counter9bits:inst9|lpm_counter:LPM_COUNTER_component|cntr_57i:auto_generated|counter_reg_bit[8]'
+Slack : -1.809
+TNS   : -112.125
+
+Type  : Slow 1200mV 0C Model Hold 'Counter9bits:inst9|lpm_counter:LPM_COUNTER_component|cntr_57i:auto_generated|counter_reg_bit[8]'
+Slack : 0.598
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Hold 'MAX10_CLK1_50'
+Slack : 0.669
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'Counter9bits:inst9|lpm_counter:LPM_COUNTER_component|cntr_57i:auto_generated|counter_reg_bit[8]'
+Slack : -3.000
+TNS   : -192.000
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'MAX10_CLK1_50'
+Slack : -3.000
+TNS   : -16.383
+
+Type  : Fast 1200mV 0C Model Setup 'MAX10_CLK1_50'
+Slack : -0.879
+TNS   : -0.879
+
+Type  : Fast 1200mV 0C Model Setup 'Counter9bits:inst9|lpm_counter:LPM_COUNTER_component|cntr_57i:auto_generated|counter_reg_bit[8]'
+Slack : -0.280
+TNS   : -16.912
+
+Type  : Fast 1200mV 0C Model Hold 'MAX10_CLK1_50'
+Slack : 0.243
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Hold 'Counter9bits:inst9|lpm_counter:LPM_COUNTER_component|cntr_57i:auto_generated|counter_reg_bit[8]'
+Slack : 0.287
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'MAX10_CLK1_50'
+Slack : -3.000
+TNS   : -12.315
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'Counter9bits:inst9|lpm_counter:LPM_COUNTER_component|cntr_57i:auto_generated|counter_reg_bit[8]'
+Slack : -1.000
+TNS   : -64.000
+
+------------------------------------------------------------

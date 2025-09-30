@@ -1,17 +1,17 @@
-Fitter Status : Successful - Tue Aug 26 17:10:03 2025
+Fitter Status : Successful - Tue Sep 16 19:09:30 2025
 Quartus Prime Version : 18.1.0 Build 625 09/12/2018 SJ Lite Edition
 Revision Name : Projeto1
 Top-level Entity Name : Projeto1
 Family : MAX 10
 Device : 10M50DAF484C7G
 Timing Models : Final
-Total logic elements : 92 / 49,760 ( < 1 % )
-    Total combinational functions : 91 / 49,760 ( < 1 % )
-    Dedicated logic registers : 35 / 49,760 ( < 1 % )
-Total registers : 35
-Total pins : 52 / 360 ( 14 % )
+Total logic elements : 65 / 49,760 ( < 1 % )
+    Total combinational functions : 62 / 49,760 ( < 1 % )
+    Dedicated logic registers : 40 / 49,760 ( < 1 % )
+Total registers : 40
+Total pins : 21 / 360 ( 6 % )
 Total virtual pins : 0
-Total memory bits : 640 / 1,677,312 ( < 1 % )
+Total memory bits : 64 / 1,677,312 ( < 1 % )
 Embedded Multiplier 9-bit elements : 0 / 288 ( 0 % )
 Total PLLs : 0 / 4 ( 0 % )
 UFM blocks : 0 / 1 ( 0 % )

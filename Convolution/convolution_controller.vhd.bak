@@ -1,0 +1,120 @@
+library IEEE;
+use IEEE.STD_LOGIC_1164.ALL;
+use IEEE.NUMERIC_STD.ALL;
+
+entity Convolution_Controller is
+    Port (
+        clk    : in  std_logic;
+        reset  : in  std_logic;
+        go     : in  std_logic;   -- sinal externo que inicia todo o processo
+
+        -- controle para o bloco de convolução
+        start   : out std_logic;
+        load_x  : out std_logic;
+        load_h  : out std_logic;
+        addr_x  : out std_logic_vector(7 downto 0); -- 0..255
+        addr_h  : out std_logic_vector(7 downto 0); -- 0..255
+
+        done_ctrl : out std_logic  -- sinal quando controlador finaliza
+    );
+end Convolution_Controller;
+
+architecture Behavioral of Convolution_Controller is
+
+    type state_type is (IDLE, START_CONV, LOAD_X, LOAD_H, WAIT_DONE, FINISH);
+    signal state : state_type := IDLE;
+
+    signal count_x : integer range 0 to 256 := 0;
+    signal count_h : integer range 0 to 256 := 0;
+
+    -- sinais internos
+    signal start_int  : std_logic := '0';
+    signal loadx_int  : std_logic := '0';
+    signal loadh_int  : std_logic := '0';
+    signal addrx_int  : unsigned(7 downto 0) := (others => '0');
+    signal addrh_int  : unsigned(7 downto 0) := (others => '0');
+    signal done_int   : std_logic := '0';
+
+begin
+
+    -- máquina de estados do controlador
+    process(clk, reset)
+    begin
+        if reset = '1' then
+            state     <= IDLE;
+            count_x   <= 0;
+            count_h   <= 0;
+            start_int <= '0';
+            loadx_int <= '0';
+            loadh_int <= '0';
+            addrx_int <= (others => '0');
+            addrh_int <= (others => '0');
+            done_int  <= '0';
+
+        elsif rising_edge(clk) then
+            case state is
+
+                when IDLE =>
+                    start_int <= '0';
+                    loadx_int <= '0';
+                    loadh_int <= '0';
+                    done_int  <= '0';
+                    if go = '1' then
+                        state <= START_CONV;
+                    end if;
+
+                when START_CONV =>
+                    start_int <= '1';  -- pulso de start
+                    count_x   <= 0;
+                    count_h   <= 0;
+                    addrx_int <= (others => '0');
+                    addrh_int <= (others => '0');
+                    state <= LOAD_X;
+
+                when LOAD_X =>
+                    start_int <= '0';
+                    if count_x < 256 then
+                        loadx_int <= '1';
+                        addrx_int <= to_unsigned(count_x, 8);
+                        count_x   <= count_x + 1;
+                    else
+                        loadx_int <= '0';
+                        state <= LOAD_H;
+                    end if;
+
+                when LOAD_H =>
+                    if count_h < 256 then
+                        loadh_int <= '1';
+                        addrh_int <= to_unsigned(count_h, 8);
+                        count_h   <= count_h + 1;
+                    else
+                        loadh_int <= '0';
+                        state <= WAIT_DONE;
+                    end if;
+
+                when WAIT_DONE =>
+                    -- aqui aguardaria o "done" do bloco de convolução
+                    -- como esse controlador não tem acesso direto ao done do bloco,
+                    -- vamos simular que o cálculo demora e ir para FINISH em seguida.
+                    -- Na prática: conectar done do bloco de convolução aqui.
+                    state <= FINISH;
+
+                when FINISH =>
+                    done_int <= '1';
+                    if go = '0' then
+                        state <= IDLE;
+                    end if;
+
+            end case;
+        end if;
+    end process;
+
+    -- mapeamento de saídas
+    start   <= start_int;
+    load_x  <= loadx_int;
+    load_h  <= loadh_int;
+    addr_x  <= std_logic_vector(addrx_int);
+    addr_h  <= std_logic_vector(addrh_int);
+    done_ctrl <= done_int;
+
+end Behavioral;

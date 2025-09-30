@@ -1,0 +1,74 @@
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
+
+entity convolution is
+    generic (
+        VECTOR_SIZE : integer := 8;  -- Tamanho dos vetores
+        DATA_WIDTH  : integer := 8   -- Largura dos dados (bits)
+    );
+    port (
+        clk      : in  std_logic;
+        reset    : in  std_logic;
+        start    : in  std_logic;
+        x_data_in: in  std_logic_vector(DATA_WIDTH-1 downto 0);
+        h_vec_in : in  std_logic_vector(DATA_WIDTH*VECTOR_SIZE-1 downto 0);
+        y_data_out: out std_logic_vector(DATA_WIDTH*2-1 downto 0); -- Aumenta a largura para a soma
+        ready    : out std_logic
+    );
+end entity convolution;
+
+architecture behavioral of convolution is
+    type shift_register_type is array (0 to VECTOR_SIZE-1) of std_logic_vector(DATA_WIDTH-1 downto 0);
+    signal x_shift_reg : shift_register_type;
+
+    type h_vector_type is array (0 to VECTOR_SIZE-1) of std_logic_vector(DATA_WIDTH-1 downto 0);
+    signal h_vec       : h_vector_type;
+
+    signal multiplier_out : std_logic_vector(DATA_WIDTH*2-1 downto 0);
+    signal accumulator    : std_logic_vector(DATA_WIDTH*2-1 downto 0);
+
+    signal count          : integer range 0 to VECTOR_SIZE;
+    signal busy           : std_logic;
+
+begin
+
+    -- Desempacota o vetor de entrada h_vec_in para um array
+    gen_h_vec: for i in 0 to VECTOR_SIZE-1 generate
+        h_vec(i) <= h_vec_in((i+1)*DATA_WIDTH-1 downto i*DATA_WIDTH);
+    end generate;
+
+    process(clk, reset)
+    begin
+        if reset = '1' then
+            x_shift_reg <= (others => (others => '0'));
+            accumulator <= (others => '0');
+            count <= 0;
+            busy <= '0';
+            ready <= '0';
+        elsif rising_edge(clk) then
+            if start = '1' and busy = '0' then
+                busy <= '1';
+                count <= 0;
+                ready <= '0';
+            end if;
+
+            if busy = '1' then
+                -- Registrador de deslocamento para o vetor x
+                x_shift_reg <= x_data_in & x_shift_reg(0 to VECTOR_SIZE-2);
+
+                -- Multiplica e acumula em cada ciclo
+                multiplier_out <= std_logic_vector(signed(x_shift_reg(count)) * signed(h_vec(count)));
+                accumulator <= std_logic_vector(signed(accumulator) + signed(multiplier_out));
+                
+                count <= count + 1;
+
+                if count = VECTOR_SIZE-1 then
+                    y_data_out <= accumulator;
+                    busy <= '0';
+                    ready <= '1';
+                end if;
+            end if;
+        end if;
+    end process;
+end architecture behavioral;

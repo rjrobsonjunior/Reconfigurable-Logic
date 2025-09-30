@@ -1,0 +1,16 @@
+
+State Machine - |ConvolutionHardware|Convolution_Controller:inst10|state
+Name state.FINISH state.WAIT_DONE state.LOAD_H_s state.LOAD_X_s state.START_CONV state.IDLE 
+state.IDLE 0 0 0 0 0 0 
+state.START_CONV 0 0 0 0 1 1 
+state.LOAD_X_s 0 0 0 1 0 1 
+state.LOAD_H_s 0 0 1 0 0 1 
+state.WAIT_DONE 0 1 0 0 0 1 
+state.FINISH 1 0 0 0 0 1 
+
+State Machine - |ConvolutionHardware|Convolucao_Sequencial:inst8|state
+Name state.DONE_s state.COMPUTE state.LOAD state.IDLE 
+state.IDLE 0 0 0 0 
+state.LOAD 0 0 1 1 
+state.COMPUTE 0 1 0 1 
+state.DONE_s 1 0 0 1 

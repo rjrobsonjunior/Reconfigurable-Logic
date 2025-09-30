@@ -1,0 +1,10 @@
+
+State Machine - |Projeto1|FSM_LineFollower_2:inst12|fstate
+Name fstate.Lost fstate.SeekRight fstate.SeekLeft fstate.TurnRight fstate.TurnLeft fstate.FullSpeed fstate.Idle 
+fstate.Idle 0 0 0 0 0 0 0 
+fstate.FullSpeed 0 0 0 0 0 1 1 
+fstate.TurnLeft 0 0 0 0 1 0 1 
+fstate.TurnRight 0 0 0 1 0 0 1 
+fstate.SeekLeft 0 0 1 0 0 0 1 
+fstate.SeekRight 0 1 0 0 0 0 1 
+fstate.Lost 1 0 0 0 0 0 1 
